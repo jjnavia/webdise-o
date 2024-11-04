@@ -1,0 +1,184 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas Guardadas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {  
+            background-color: #f0f0f0;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: antiquewhite;
+            border: 5px solid #565;
+            border-radius: 25px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            width: 95%;
+            max-width: 900px;
+        }
+
+        h1 {
+            color: #343a40;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        h1::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: #28a745;
+            bottom: 0;
+            left: 0;
+            transform: translateX(-100%);
+            animation: slideIn 0.5s forwards;
+        }
+
+        @keyframes slideIn {
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: #ffffff; 
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            border-radius: 10px; 
+            overflow: hidden; 
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #dee2e6; 
+            text-align: left;
+            font-size: 1em;
+        }
+
+        th {
+            background-color: #28a745; 
+            color: white;
+            font-weight: bold;
+            text-align: center; 
+        }
+
+        tbody tr {
+            transition: background-color 0.3s, transform 0.2s; 
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f9f9f9; 
+        }
+
+        tbody tr:hover {
+            background-color: #d4edda; 
+            transform: scale(1.02); 
+        }
+
+        td {
+            background-color: #ffffff; 
+        }
+
+        td:nth-child(1) {
+            font-weight: bold;
+            color: #007bff; 
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; 
+            }
+            th, td {
+                padding: 10px; 
+                font-size: 0.9em; 
+            }
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            background-color: #dc3545; /* Rojo */
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #c82333; /* Rojo oscuro */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Ventas Guardadas</h1>
+    </header>
+
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>NRO DE VENTA</th>
+                    <th>FECHA</th>
+                    <th>CLIENTE</th>
+                    <th>IMPORTE</th>
+                </tr>
+            </thead>
+            <tbody id="ventasTableBody"></tbody>
+        </table>
+        <button id="reiniciarBtn">Reiniciar Almacenaje</button>
+    </main>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const ventasGuardadas = JSON.parse(localStorage.getItem('ventas')) || [];
+        const tbody = document.getElementById('ventasTableBody');
+
+        const cargarVentas = () => {
+            tbody.innerHTML = ''; // Limpiar tabla
+            ventasGuardadas.forEach(venta => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${venta.nroVenta}</td>
+                    <td>${venta.fecha}</td>
+                    <td>${venta.cliente}</td>
+                    <td>${venta.importeFinal}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        };
+
+        cargarVentas();
+
+        document.getElementById('reiniciarBtn').addEventListener('click', () => {
+            localStorage.removeItem('ventas'); // Borrar ventas del localStorage
+            cargarVentas(); // Recargar tabla
+            alert('Almacenaje reiniciado.');
+        });
+    });
+</script>
+</body>
+</html>

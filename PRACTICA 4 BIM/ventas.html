@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <title>Accesorios de Computación</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(270deg, 
+                #00bcd4, #03a9f4, #80deea, 
+                #009688, #673ab7, #7e57c2, 
+                #b39ddb, #4a148c, #6a1b9a, 
+                #9575cd, #42a5f5, #1e88e5);
+            background-size: 600% 600%;
+            animation: gradientAnimation 15s ease infinite;
+            color: #333;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            background-image: url(accesorios/compu.png);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            animation: colorChange 3s infinite alternate;
+        }
+
+        h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #0056b3;
+        }
+
+        @keyframes colorChange {
+            0% { color: #ff6347; }
+            25% { color: #4682b4; }
+            50% { color: #32cd32; }
+            75% { color: #ffa500; }
+            100% { color: #9310d3; }
+        }
+
+        @media(max-width: 991px) {
+            h1 { font-size: 60px; }
+            header { height: 300px; }
+        }
+
+        main {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 4px solid #4a148c;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            border-radius: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            color: #444;
+        }
+
+        .form-section {
+    background-color: #ffffff; /* Fondo blanco para la sección */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.form-section h2 {
+    font-size: 1.8em;
+    color: #333; /* Color del título */
+    margin-bottom: 15px; /* Espacio inferior */
+    border-bottom: 2px solid #00796b; /* Línea debajo del título */
+    padding-bottom: 10px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: 500; /* Negrita para las etiquetas */
+    color: #555; /* Color de las etiquetas */
+}
+
+input[type="text"],
+input[type="date"],
+input[type="tel"],
+input[type="email"],
+select {
+    width: calc(100% - 20px);
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-bottom: 15px; /* Mayor espacio inferior */
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: #f9f9f9; /* Fondo más claro para los campos */
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="tel"]:focus,
+input[type="email"]:focus,
+select:focus {
+    border-color: #00796b; /* Color del borde al enfocar */
+    box-shadow: 0 0 5px rgba(0, 121, 107, 0.5);
+    outline: none;
+}
+
+button {
+    background: #00796b; /* Color de fondo */
+    color: white;
+    padding: 12px 20px; /* Mayor padding */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-top: 10px;
+    font-size: 1em; /* Tamaño de fuente del botón */
+}
+
+button:hover {
+    background: #004d40; /* Color más oscuro al pasar el mouse */
+    transform: translateY(-2px); /* Levanta el botón */
+}
+
+.totales {
+    margin-top: 15px;
+    background: #e8f5e9; /* Fondo suave para totales */
+    padding: 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.totales h2 {
+    margin: 0 0 10px;
+    font-size: 1.5em; /* Tamaño del título */
+    color: #333; /* Color del texto */
+}
+
+.totales p {
+    margin: 5px 0; /* Espaciado entre los párrafos */
+    font-size: 1.2em; /* Tamaño de fuente más grande */
+    color: #555; /* Color del texto */
+    font-weight: 500; /* Negrita */
+}
+
+
+        table {
+    width: 100%;
+    margin: 20px 0;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden; /* Para bordes redondeados */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 15px;
+    border: none; /* Sin borde para las celdas */
+    text-align: left;
+}
+
+th {
+    background: #03547a; /* Azul oscuro */
+    color: white;
+    font-weight: bold;
+    position: relative; /* Para el efecto de sombra */
+    transition: background 0.3s;
+}
+
+th::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 4px; /* Sombra en la parte inferior */
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(10%);
+    transition: transform 0.3s;
+}
+
+th:hover {
+    background: #0277bd; /* Color más claro al pasar el mouse */
+    transform: translateY(-2px); /* Levanta el encabezado ligeramente */
+}
+
+td {
+    background: #f9f9f9; /* Color de fondo para las celdas */
+    transition: background 0.3s;
+}
+
+td:hover {
+    background: #e0f7fa; /* Color al pasar el mouse */
+}
+
+/* Agregar bordes a las filas */
+tr:nth-child(even) td {
+    background: #f1f1f1; /* Color alterno para filas */
+}
+
+.totales {
+    background: #f1f8e9; /* Color de fondo más suave */
+    padding: 15px;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #012723;
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Accesorios de Computación</h1>
+        <h2>Bienvenido a nuestra tienda</h2>
+        <p>Aquí encontrarás una amplia variedad de productos para mejorar tu experiencia tecnológica.</p>
+    </header>
+
+    <main>
+        <form id="ventaForm" onsubmit="guardarVenta(); return false;">
+            <div class="form-section">
+                <h2>Información de la Venta</h2>
+                <label for="nroVenta">NRO DE VENTA:</label>
+                <input type="text" id="nroVenta" required>
+                <label for="fecha">FECHA:</label>
+                <input type="date" id="fecha" required>
+                <label for="cliente">CLIENTE:</label>
+                <input type="text" id="cliente" required>
+                <label for="tel">TEL:</label>
+                <input type="tel" id="tel" required>
+                <label for="direccion">DIRECCION:</label>
+                <input type="text" id="direccion" required>
+                <label for="email">EMAIL:</label>
+                <input type="email" id="email" required>
+            </div>
+
+            <div class="form-section">
+                <h2>Detalles del Producto</h2>
+                <table id="productos">
+                    <thead>
+                        <tr>
+                            <th>CANTIDAD</th>
+                            <th>DESCRIPCIÓN</th>
+                            <th>PRECIO UNITARIO</th>
+                            <th>IMPORTE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Las filas de productos se agregarán dinámicamente aquí -->
+                    </tbody>
+                </table>
+                <button type="button" onclick="agregarProducto()">Agregar Producto</button>
+            </div>
+
+            <div class="totales">
+                <h2>Totales</h2>
+                <p>Subtotal: <span id="subtotal">0</span></p>
+                <p>IVA (13%): <span id="iva">0</span></p>
+                <p>Importe Final: <span id="importeFinal">0</span></p>
+            </div>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Accesorios de Computación. Todos los derechos reservados por Navi@ Ticona Jose Jaldin.</p>
+    </footer>
+
+    <script>
+        function agregarProducto() {
+            const newRow = document.createElement('tr');
+            newRow.innerHTML = `
+                <td><input type="number" class="cantidad" value="1" min="1" onchange="calcularSubtotal(this.parentNode.parentNode)"></td>
+                <td>
+                    <select class="descripcion" onchange="actualizarProducto(this)">
+                        <option value="0" data-precio="0">Seleccione un producto</option>
+                        <option value="200" data-precio="200">Teclado y Mouse gamer Free Wolf T13</option>
+                        <option value="310" data-precio="310">Mini Teclado Inalámbrico Touchpad Smart Tv Pc Xbox</option>
+                        <option value="1160" data-precio="1160">Monitor 27" FHD 1080P HDMI</option>
+                        <option value="2160" data-precio="2160">Gaming Monitor 34" Curved WQHD 3440×1440</option>
+                        <option value="150" data-precio="150">Auriculares inalámbricos Gaming Headset Display</option>
+                        <option value="180" data-precio="180">Cámara Web HD 1080p</option>
+                    </select>
+                    <div class="imagenProducto" style="margin-top: 5px;"></div>
+                </td>
+                <td><input type="text" class="precioUnitario" value="0" readonly></td>
+                <td><input type="text" class="subtotal" value="0" readonly></td>
+            `;
+            document.querySelector('#productos tbody').appendChild(newRow);
+        }
+
+        function actualizarProducto(select) {
+            const row = select.parentNode.parentNode;
+            const precioUnitario = select.options[select.selectedIndex].dataset.precio;
+            row.querySelector('.precioUnitario').value = precioUnitario;
+            calcularSubtotal(row);
+
+            const imagenDiv = row.querySelector('.imagenProducto');
+            let imagenSrc = '';
+            
+            if (select.value == "200") {
+                imagenSrc = 'accesorios/teclado.jpg';
+            } else if (select.value == "310") {
+                imagenSrc = 'accesorios/teclado3.jpeg';
+            } else if (select.value == "1160") {
+                imagenSrc = 'accesorios/monitor.jpg';
+            } else if (select.value == "2160") {
+                imagenSrc = 'accesorios/monitor2.webp';
+            } else if (select.value == "150") {
+                imagenSrc = 'accesorios/auriculares2.webp';
+            } else if (select.value == "180") {
+                imagenSrc = 'accesorios/camara.jpg';
+            }
+            
+            if (imagenSrc) {
+                imagenDiv.innerHTML = `<img src="${imagenSrc}" width="210px" alt="${select.options[select.selectedIndex].text}">`;
+            } else {
+                imagenDiv.innerHTML = ''; 
+            }
+        }
+
+        function calcularSubtotal(row) {
+            const cantidad = row.querySelector('.cantidad').value;
+            const precioUnitario = row.querySelector('.precioUnitario').value;
+            const subtotal = cantidad * precioUnitario;
+            row.querySelector('.subtotal').value = subtotal.toFixed(2);
+            calcularTotales();
+        }
+
+        function calcularTotales() {
+            const filas = document.querySelectorAll('#productos tbody tr');
+            let totalSubtotal = 0;
+
+            filas.forEach(row => {
+                const subtotal = parseFloat(row.querySelector('.subtotal').value) || 0;
+                totalSubtotal += subtotal;
+            });
+
+            const iva = totalSubtotal * 0.13;
+            const importeFinal = totalSubtotal + iva;
+
+            document.getElementById('subtotal').innerText = totalSubtotal.toFixed(2);
+            document.getElementById('iva').innerText = iva.toFixed(2);
+            document.getElementById('importeFinal').innerText = importeFinal.toFixed(2);
+        }
+
+        function guardarVenta() {
+            const venta = {
+                nroVenta: document.getElementById('nroVenta').value,
+                fecha: document.getElementById('fecha').value,
+                cliente: document.getElementById('cliente').value,
+                tel: document.getElementById('tel').value,
+                direccion: document.getElementById('direccion').value,
+                email: document.getElementById('email').value,
+                productos: [],
+                subtotal: document.getElementById('subtotal').innerText,
+                iva: document.getElementById('iva').innerText,
+                importeFinal: document.getElementById('importeFinal').innerText
+            };
+
+            const filas = document.querySelectorAll('#productos tbody tr');
+            filas.forEach(row => {
+                const descripcion = row.querySelector('.descripcion').value;
+                const cantidad = row.querySelector('.cantidad').value;
+                const precioUnitario = row.querySelector('.precioUnitario').value;
+                const subtotal = row.querySelector('.subtotal').value;
+
+                if (descripcion !== "0") {
+                    venta.productos.push({
+                        descripcion: descripcion,
+                        cantidad: cantidad,
+                        precioUnitario: precioUnitario,
+                        subtotal: subtotal
+                    });
+                }
+            });
+
+            // Guardar en localStorage
+            const ventasGuardadas = JSON.parse(localStorage.getItem('ventas')) || [];
+            ventasGuardadas.push(venta);
+            localStorage.setItem('ventas', JSON.stringify(ventasGuardadas));
+
+            alert('Venta guardada en localStorage.');
+            window.location.href = "localstorage_res.html"; 
+        }
+    </script>
+</body>
+</html>
